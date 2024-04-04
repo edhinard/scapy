@@ -415,7 +415,7 @@ class TLS_Ext_ClientCertType(TLS_Ext_Unknown):                      # RFC 5081
     name = "TLS Extension - Certificate Type (client version)"
     fields_desc = [ShortEnumField("type", 9, _tls_ext),
                    MayEnd(ShortField("len", None)),
-                   FieldLenField("ctypeslen", None, length_of="ctypes"),
+                   FieldLenField("ctypeslen", None, length_of="ctypes", fmt="B"),
                    FieldListField("ctypes", [0, 1],
                                   ByteEnumField("certtypes", None,
                                                 _tls_cert_types),
